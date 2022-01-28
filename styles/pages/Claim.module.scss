@@ -1,0 +1,159 @@
+// Claim page
+.claim {
+  // Sizing
+  max-width: 700px;
+  margin: 2rem auto 50px auto;
+  text-align: center;
+  padding: 1rem;
+
+
+  // Header
+  > div {
+    > h1 {
+      font-size: 48px;
+      font-weight: bold;
+      line-height: 1.2;
+      margin: 1rem;
+      color: black;
+    }
+
+    > h2 {
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 1.2;
+      margin: 2rem 1rem;
+      color: black;
+    }
+
+    > hr {
+      border-block-color: #000
+    }
+    // Main blue button
+    > button {
+      float: right;
+      margin-top: 1rem;
+      font-weight: 500;
+      border-radius: 12px;
+      padding: 1rem;
+      font-size: 16px;
+      border: 1px solid #FFF38D;
+      color: #91650E;
+      background-color: #FFF38D;
+
+      &:hover {
+        border-color: #FFF38D;
+      }
+
+      // Disable border color change on disabled hover
+      &:disabled:hover {
+        border-color: #FFF38D !important;
+      }
+
+      &:disabled {
+        opacity: 0.5;
+        border-color: #FFF38D !important;
+        cursor: not-allowed;
+      }
+    }
+  }
+}
+
+.content {
+  margin: 2rem 0;
+  > div {
+    display: flex;
+    margin: 1rem 0;
+    font-size: 22px;
+    font-weight: bold;
+
+    > div:nth-child(1) {
+      margin: 1rem 0 0 0;
+      display: flex;
+      flex: 1 1 0%;
+      align-items: flex-start;
+      font-size: 20px;
+      font-weight: 400;
+    }
+
+    > div:nth-child(2) {
+      margin: 1rem 0 0 0;
+      display: flex;
+      align-items: flex-end;
+      font-size: 20px;
+      font-weight: 600;
+    }
+    
+  }
+}
+
+.result {
+  margin: 2rem 0;
+  display: flex;
+    > div:nth-child(1) {
+        display: flex;
+        flex: 1 1 0%;
+        align-items: flex-start;
+        font-size: 24px;
+        font-weight: bold;
+    }
+    > div:nth-child(2) {
+      display: flex;
+      align-items: flex-end;
+      font-size: 24px;
+      font-weight: bold;
+    }
+}
+// Individual card container
+.card {
+  // background: #F3BA2D;
+  // border-radius: 1rem;
+  // border: 1px solid #F3BA2D;
+  // padding: 2rem;
+  width: calc(100% - 4rem - 20px);
+  max-width: 700px;
+  // box-shadow: rgb(117 117 117 / 10%) 0px 10px 20px 5px;
+  text-align: left;
+
+  // Header
+  > h1 {
+    margin: 0px;
+    line-height: 1.2;
+    font-size: 25px;
+  }
+
+  // Description
+  > p {
+    line-height: 1.5;
+    margin: 1rem 0px;
+  }
+
+  // Main blue button
+  > button {
+    width: 100%;
+    margin-top: 1rem;
+    font-weight: 500;
+    border-radius: 12px;
+    padding: 1rem;
+    font-size: 16px;
+    border: 1px solid #FFF38D;
+    color: #91650E;
+    background-color: #FFF38D;
+
+    &:hover {
+      border-color: #FFF38D;
+    }
+
+    // Disable border color change on disabled hover
+    &:disabled:hover {
+      border-color: #FFF38D !important;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      border-color: #FFF38D !important;
+      cursor: not-allowed;
+    }
+  }
+}
+
+
