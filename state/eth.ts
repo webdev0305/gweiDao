@@ -2,6 +2,7 @@ import { ethers } from "ethers"; // Ethers
 import Onboard from "bnc-onboard"; // Onboard.js
 import { useEffect, useState } from "react"; // React
 import { createContainer } from "unstated-next"; // State management
+import axios from "axios"
 
 // Types
 import type {
@@ -40,14 +41,19 @@ function useEth() {
   const [address, setAddress] = useState<string | null>(null); // User address
   const [onboard, setOnboard] = useState<API | null>(null); // Onboard provider
   const [provider, setProvider] = useState<Web3Provider | null>(null); // Ethers provider
-
+  const [accountInfo, setAccountInfo] = useState({
+    totalSpent: 0,
+    totalCount: 0,
+    ownSpent: 0,
+    ownCount: 0,
+    rewards: 0
+  })
   /**
    * Unlock wallet, store ethers provider and address
    */
   const unlock = async () => {
     // Enables wallet selection via BNC onboard
     if (onboard) {
-      console.log('here')
       // Initialize wallet
       const walletSelected: boolean = await onboard.walletSelect();
       // If initialized, ready wallet
@@ -92,6 +98,18 @@ function useEth() {
           // If no address, nullify provider
           if (!address) {
             setProvider(null);
+          } else {
+            axios.get(`/account/${address}`).then(res=>{
+              if(res.data) {
+                setAccountInfo({
+                  totalSpent: res.data.total_spent,
+                  totalCount: res.data.total_count,
+                  ownSpent: res.data.own?res.data.own.spent:0,
+                  ownCount: res.data.own?res.data.own.count:0,
+                  rewards: res.data.own?res.data.own.rewards:0
+                })
+              }
+            })
           }
         },
         // On wallet update
@@ -132,7 +150,7 @@ function useEth() {
     }
   }, [onboard]);
 
-  return { address, provider, unlock, lock };
+  return { address, provider, unlock, lock, accountInfo };
 }
 
 // Create unstated-next container

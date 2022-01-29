@@ -7,7 +7,7 @@ import { auth, get } from "@upstash/redis";
 
 export default function Claim() {
   // Global ETH state
-  const { address, unlock }: { address: string | null; unlock: Function } =
+  const { address, unlock, accountInfo }: { address: string | null; unlock: Function; accountInfo: any } =
     eth.useContainer();
   // Global token state
   const {
@@ -153,7 +153,7 @@ export default function Claim() {
             </p>
           </div>
         ) : (
-          
+
           <div>
             <h1>Claim your Rewards</h1>
             <h2>Reward Criteria</h2>
@@ -161,34 +161,34 @@ export default function Claim() {
               <div>BNB Spent</div>
               <div>
                 <div>Amount</div>
-                <div>0.0000</div>
+                <div>{accountInfo.ownSpent}</div>
               </div>
               <div>
                 <div>Sub-Total</div>
-                <div>0.0000</div>
+                <div>{accountInfo.totalSpent}</div>
               </div>
             </div>
             <div className={styles.content}>
               <div>Transactions</div>
               <div>
                 <div>Amount</div>
-                <div>0.0000</div>
+                <div>{accountInfo.ownCount}</div>
               </div>
               <div>
                 <div>Sub-Total</div>
-                <div>0.0000</div>
+                <div>{accountInfo.totalSpent}</div>
               </div>
             </div>
-            <hr/>
+            <hr />
             <div className={styles.result}>
               <div>Rewards</div>
-              <div>0.0000</div>
+              <div>{accountInfo.rewards}</div>
             </div>
             <button onClick={claimWithLoading} disabled={buttonLoading}>
               {buttonLoading ? "Claiming..." : "Claim"}
             </button>
           </div>
-          
+
         )}
       </div>
     </Layout>
