@@ -161,11 +161,11 @@ export default function Claim() {
               <div>BNB Spent</div>
               <div>
                 <div>Amount</div>
-                <div>{accountInfo.ownSpent}</div>
+                <div>{accountInfo.ownSpent} BNB</div>
               </div>
               <div>
                 <div>Sub-Total</div>
-                <div>{accountInfo.totalSpent}</div>
+                <div>{accountInfo.totalSpent} BNB</div>
               </div>
             </div>
             <div className={styles.content}>
@@ -176,13 +176,13 @@ export default function Claim() {
               </div>
               <div>
                 <div>Sub-Total</div>
-                <div>{accountInfo.totalSpent}</div>
+                <div>{accountInfo.totalCount}</div>
               </div>
             </div>
             <hr />
             <div className={styles.result}>
               <div>Rewards</div>
-              <div>{accountInfo.rewards}</div>
+              <div>{accountInfo.rewards} GAS</div>
             </div>
             <button onClick={claimWithLoading} disabled={buttonLoading}>
               {buttonLoading ? "Claiming..." : "Claim"}
