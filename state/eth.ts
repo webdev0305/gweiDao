@@ -104,9 +104,9 @@ function useEth() {
                 setAccountInfo({
                   totalSpent: res.data.total_spent,
                   totalCount: res.data.total_count,
-                  ownSpent: res.data.own?res.data.own.spent:0,
-                  ownCount: res.data.own?res.data.own.count:0,
-                  rewards: res.data.own?res.data.own.rewards:0
+                  ownSpent: res.data.own?.spent?res.data.own.spent:0,
+                  ownCount: res.data.own?.count?res.data.own.count:0,
+                  rewards: res.data.own?.rewards?res.data.own.rewards:0
                 })
               }
             })

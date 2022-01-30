@@ -3,9 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "nodemon server.js",
+    "dev": "nodemon server.js -p  3000",
     "build": "next build",
     "start": "cross-env NODE_ENV=production node server.js -p  $PORT"
+    
   },
   "dependencies": {
     "@upstash/redis": "^0.2.1",

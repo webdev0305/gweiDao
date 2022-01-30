@@ -125,6 +125,32 @@ export default function Claim() {
   return (
     <Layout>
       <div className={styles.claim}>
+        <div>
+          <h1>Claim your Rewards</h1>
+          <h2>Reward Criteria</h2>
+          <div className={styles.content}>
+            <div>BNB Spent</div>
+            <div>
+              <div>Amount</div>
+              <div>{accountInfo.ownSpent} BNB</div>
+            </div>
+            <div>
+              <div>Sub-Total</div>
+              <div>{accountInfo.totalSpent} BNB</div>
+            </div>
+          </div>
+          <div className={styles.content}>
+            <div>Transactions</div>
+            <div>
+              <div>Amount</div>
+              <div>{accountInfo.ownCount}</div>
+            </div>
+            <div>
+              <div>Sub-Total</div>
+              <div>{accountInfo.totalCount}</div>
+            </div>
+          </div>
+          <hr />
         {!address ? (
           // Not authenticated
           <div className={styles.card}>
@@ -153,33 +179,9 @@ export default function Claim() {
             </p>
           </div>
         ) : (
-
           <div>
-            <h1>Claim your Rewards</h1>
-            <h2>Reward Criteria</h2>
-            <div className={styles.content}>
-              <div>BNB Spent</div>
-              <div>
-                <div>Amount</div>
-                <div>{accountInfo.ownSpent} BNB</div>
-              </div>
-              <div>
-                <div>Sub-Total</div>
-                <div>{accountInfo.totalSpent} BNB</div>
-              </div>
-            </div>
-            <div className={styles.content}>
-              <div>Transactions</div>
-              <div>
-                <div>Amount</div>
-                <div>{accountInfo.ownCount}</div>
-              </div>
-              <div>
-                <div>Sub-Total</div>
-                <div>{accountInfo.totalCount}</div>
-              </div>
-            </div>
-            <hr />
+          
+            
             <div className={styles.result}>
               <div>Rewards</div>
               <div>{accountInfo.rewards} GAS</div>
@@ -187,9 +189,10 @@ export default function Claim() {
             <button onClick={claimWithLoading} disabled={buttonLoading}>
               {buttonLoading ? "Claiming..." : "Claim"}
             </button>
+          
           </div>
-
         )}
+        </div>
       </div>
     </Layout>
   );

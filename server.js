@@ -194,7 +194,7 @@ async function load_delegates(to_block, offset = 0) {
 		address: CONTRACT_ADDRESS,
 		topic: EVENT_DELEGATECHANGED_HASH,
 	  	abi: abiEventDelegateChanged,
-	  	from_block: last_rebate_block,
+	  	from_block: last_rebate_block+1,
 		to_block: to_block,
 		offset: offset
 	}	
@@ -226,7 +226,7 @@ async function load_transfers(to_block, offset = 0) {
 		address: CONTRACT_ADDRESS,
 		topic: EVENT_TRANSFER_HASH,
 	  	abi: abiEventTransfer,
-	  	from_block: last_rebate_block,
+	  	from_block: last_rebate_block+1,
 		to_block: to_block,
 		offset: offset
 	}
@@ -259,7 +259,7 @@ function load_transactions(to_block, offset = 0) {
 	const options = {
 		chain: CHAIN,
 		address: CONTRACT_ADDRESS,
-		from_block: last_rebate_block,
+		from_block: last_rebate_block+1,
 		to_block: to_block,
 		offset: offset
 	}
