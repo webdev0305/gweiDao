@@ -316,15 +316,16 @@ app.get('/account/:address', (req, res) => {
 	})
 })
 
-const server = next({ dev:true })
+const port = process.argv[3]
+const server = next({ dev:false, port })
 const handle = server.getRequestHandler()
 server.prepare().then(() => {
 	app.all('*', (req, res) => {
     return handle(req, res)
   })
-	app.listen(3000, (err) => {
+	app.listen(port, (err) => {
 		if (err) throw err
-    console.log(`> Ready on http://localhost:3000`)
+    console.log(`> Ready on http://localhost:${port}`)
 		rebate()
 		setTimeout(rebate, 7200000)
 	})
