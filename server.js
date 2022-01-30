@@ -271,7 +271,7 @@ function load_transactions(to_block, offset = 0) {
 					hash: tx.hash,
 					from: tx.from_address,
 					to: tx.to_address,
-					gas: new BigNumber(tx.gas_price).times(tx.gas).toString(),
+					gas: new BigNumber(tx.gas_price).times(tx.receipt_gas_used).toString(),
 					block: tx.block_number
 				})
 			}
