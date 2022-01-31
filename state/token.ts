@@ -138,7 +138,6 @@ function useToken() {
   const syncStatus = async (): Promise<void> => {
     // Toggle loading
     setDataLoading(true);
-
     // Force authentication
     if (address) {
       // Collect number of tokens for address
