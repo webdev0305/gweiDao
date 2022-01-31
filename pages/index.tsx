@@ -42,7 +42,7 @@ export default function Home() {
         </div>
         }
         {/* Project heading */}
-        <h1 style={{fontWeight: 500, margin: '1rem 0rem'}}>Help shape the feature of web3</h1>
+        <h1 style={{fontWeight: 500, margin: '1rem 0rem'}}>Help shape the future of web3</h1>
 
         {/* Project description */}
         <p>The governance token for the GWEI DAO, an ultra-DAO formed with the vision of being the core heart and voice of the largest community of the native users on Binance Samrt Chain,  bridging the worlds of Defi, NFTs and DApps.</p>
